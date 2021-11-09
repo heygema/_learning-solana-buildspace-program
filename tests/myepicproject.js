@@ -51,6 +51,15 @@ const main = async () => {
     }
   );
 
+  await program.rpc.addGif(
+    'https://7o23fd3c3yh4ukc7shkaglcjyu4m2fkyw74464xecjsisit4py5q.arweave.net/-7Wyj2LeD8ooX5HUAyxJxTjNFVi3-c9y5BJkiSJ8fjs/?ext=png',
+    {
+      accounts: {
+        baseAccount: baseAccount.publicKey,
+      },
+    }
+  );
+
   account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log('(Updated) GIF Count >>>', account.totalGifs.toString());
 
