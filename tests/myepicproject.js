@@ -33,12 +33,14 @@ const main = async () => {
       user: provider.wallet.publicKey,
       systemProgram: SystemProgram.programId,
     },
+    signers: [baseAccount],
   });
 
   console.log('Your transaction signature ...', tx);
 
+  // Fetch data from the account.
   let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
-  console.log(('Gif count >>', account.totalGifs.toString()));
+  console.log('GIF Count >>>', account.totalGifs.toString());
 };
 
 const runMain = async () => {
